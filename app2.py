@@ -50,9 +50,9 @@ if nivel == 0:
 else:
     frase = st.selectbox("Elige una frase del nivel seleccionado:", niveles[nivel])
 
-# 🎙️ Opciones de grabación
-st.subheader("Sube tu pronunciación (.wav)")
-audio_file = st.file_uploader("Selecciona un archivo de audio", type=["wav"])
+# 🎙️ Subida de archivo
+st.subheader("Sube tu pronunciación")
+audio_file = st.file_uploader("Sube tu grabación (.wav)", type=["wav"])
 
 #Archivo historial
 HISTORIAL_PATH = "historial.json"
@@ -70,31 +70,32 @@ def guardar_en_historial(usuario, nivel, frase, resultados):
         "Completitud": resultados["CompletenessScore"]
     }
 
-    if os.path.exists(HISTORIAL_PATH):#busca el archivo.json
-        with open(HISTORIAL_PATH, "r", encoding="utf-8") as f:#true, open con lectura + asegura carac especiales
-            data = json.load(f) # convierte contenido del json en en lista py data
+    if os.path.exists(HISTORIAL_PATH):
+        with open(HISTORIAL_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
     else:
         data = []
 
-    data.append(nuevo_registro)#se guarda el registro
-    with open(HISTORIAL_PATH, "w", encoding="utf-8") as f:#se abre en escritura, guarda en json
+    data.append(nuevo_registro)
+    with open(HISTORIAL_PATH, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
-        #indent=4 =organiza el JSON con indentación legible.
-        #ensure_ascii=False = permite guardar caracteres especiales correctamente.
 
-# Procesar audio subido
-if audio_file:
+# Variable que guardará la ruta final del audio a evaluar
+temp_audio_path = None
+
+# Si el usuario subió un archivo, usamos ese archivo para evaluar
+if audio_file is not None:
+    # Guardamos el archivo subido como temporal para que sea compatible con evaluar_pronunciacion
     with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmpfile:
         tmpfile.write(audio_file.read())
         temp_audio_path = tmpfile.name
-
     st.audio(temp_audio_path, format="audio/wav")
-    #st.audio = reproductor de audio
-    #permite escuchar el audio grabado
 
-    with st.spinner("Evaluando pronunciación..."):#mensaje mientras se procesa = spinner
+# Evaluación del audio
+if temp_audio_path is not None and st.button("Evaluar pronunciación"):
+    with st.spinner("Evaluando pronunciación..."):
         try:
-            resultados = evaluar_pronunciacion(temp_audio_path, frase)#comparar
+            resultados = evaluar_pronunciacion(temp_audio_path, frase)
             st.success("Evaluación completada")
 
             # Mostrar resultados
@@ -110,28 +111,26 @@ if audio_file:
 
             # Resultados por palabra
             st.subheader("Resultados por palabra")
-            for palabra in resultados["Words"]:#recorre words
-                barra = int(palabra["Score"])#en entero
+            for palabra in resultados["Words"]:
+                barra = int(palabra["Score"])
                 st.progress(barra / 100)
                 st.write(f"**{palabra['Word']}** → {palabra['Score']:.1f}")
 
             #Sugerencias automáticas
-            sugerencias = []#lista vacia para guardas los consejor para el usuario
+            sugerencias = []
 
-            if resultados["FluencyScore"] < 70:#mide la fluidez del discurso
+            if resultados["FluencyScore"] < 70:
                 sugerencias.append("Habla con un ritmo más natural, evitando pausas largas.")
-            if resultados["AccuracyScore"] < 70:#precision de tu audio a la pronunciacion correcta
+            if resultados["AccuracyScore"] < 70:
                 sugerencias.append("Escucha atentamente la pronunciación nativa y repite.")
-            if resultados["PronunciationScore"] < 75: #puntuación general de la pronunciación
+            if resultados["PronunciationScore"] < 75:
                 sugerencias.append("Presta atención a los sonidos vocálicos difíciles.")
-            if any(w["Score"] < 60 for w in resultados["Words"]):#verifica si hay una palabra muy mal evaluada en words
+            if any(w["Score"] < 60 for w in resultados["Words"]):
                 palabra_peor = min(resultados["Words"], key=lambda w: w["Score"])["Word"]
-                #se usa lambda para encontar la palabra con la peor puntuación
                 sugerencias.append(f"Practica la pronunciación de la palabra **'{palabra_peor}'**.")
 
             if resultados["CompletenessScore"] < 80:
                 sugerencias.append("Asegúrate de pronunciar todas las palabras completas.")
-                #porcentaje de palabras pronunciadas correctamente dentro de la frase.
 
             if not sugerencias:
                 sugerencias = ["¡Excelente pronunciación! Estás listo para subir de nivel."]
@@ -143,10 +142,7 @@ if audio_file:
             # Progreso
             if nivel > 0 and resultados["PronunciationScore"] > 80 and nivel < 5:
                 st.success(f"¡Muy bien, {usuario}! Puedes pasar al **nivel {nivel + 1}** ")
-                #si el usuario esta mas de 0 y menos de 5 significa que puede pasar a un nivel más si saca >80
             elif nivel == 5 and resultados["PronunciationScore"] > 80:
-                #Si el usuario está en el nivel 5 y su pronunciación es mayor que 80
-                #Significa que ha completado todo el plan de práctica.
                 st.balloons()
                 st.success("¡Has completado todos los niveles! Felicidades ")
 
@@ -158,13 +154,12 @@ st.subheader("Historial de progreso")
 
 if os.path.exists(HISTORIAL_PATH):
     with open(HISTORIAL_PATH, "r", encoding="utf-8") as f:
-        data = json.load(f)#cargar data
-        user_data = [d for d in data if d["usuario"] == usuario]#Filtrar solo los registros del usuario actual
+        data = json.load(f)
+        user_data = [d for d in data if d["usuario"] == usuario]
 
         if user_data:
             df = pd.DataFrame(user_data)
             st.dataframe(df)
-
             st.line_chart(df[["Pronunciación", "Fluidez", "Precisión"]].reset_index(drop=True))
         else:
             st.info("Aún no tienes evaluaciones registradas.")

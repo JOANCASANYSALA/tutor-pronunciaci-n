@@ -198,5 +198,15 @@
         "Precisión": 75.0,
         "Fluidez": 91.0,
         "Completitud": 100.0
+    },
+    {
+        "usuario": "Joan",
+        "fecha": "2025-11-13 14:13:52",
+        "nivel": 0,
+        "frase": "Today",
+        "Pronunciación": 0.4,
+        "Precisión": 2.0,
+        "Fluidez": 0.0,
+        "Completitud": 0.0
     }
 ]
