@@ -33,4 +33,5 @@ SPEECH_REGION=tu región
 
 Para usar streamlit cloud deberas de utilizar el app2, ya que soundevice no es compatible con streamlit cloud por lo que que hacemos es que el usuario suba el audio desde el dispositivo
 
-Tambien te tienes que instalar el requirements.txt
+Tambien te tienes que instalar el requirements.txt con pip install -r requirements.txt
+
