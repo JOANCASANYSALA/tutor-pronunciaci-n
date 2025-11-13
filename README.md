@@ -29,3 +29,6 @@ Permite grabar o subir tu voz, comparar con frases modelo y ver sugerencias auto
 Tendras que crear un archivo .env para añadir tus claves de azure, un ejemplo:
 SPEECH_KEY=tu clave
 SPEECH_REGION=tu región
+
+
+Para usar streamlit cloud deberas de utilizar el app2, ya que soundevice no es compatible con streamlit cloud por lo que que hacemos es que el usuario suba el audio desde el dispositivo
