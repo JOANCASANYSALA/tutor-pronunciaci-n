@@ -52,7 +52,7 @@ if nivel == 0:
 else:
     frase = st.selectbox("Elige una frase del nivel seleccionado:", niveles[nivel])
 
-# 🎙️ Opciones de grabación
+# 🎙️ Opciones de grabación o subida
 st.subheader("Graba o sube tu pronunciación")
 audio_file = st.file_uploader("Sube tu grabación (.wav)", type=["wav"])
 
@@ -87,30 +87,39 @@ def guardar_en_historial(usuario, nivel, frase, resultados):
         #indent=4 =organiza el JSON con indentación legible.
         #ensure_ascii=False = permite guardar caracteres especiales correctamente.
 
-# Grabación directa
-if st.button("Grabar ahora"):
+# Variable que guardará la ruta final del audio a evaluar
+temp_audio_path = None
+
+# Botón para grabar desde la app
+if st.button("🎤 Grabar audio ahora"):
     st.info("Grabando... habla ahora")
 
-    #(int(duracion * sample_rate) es el número total de muestras que se van a grabar
-    #sample_rate = frecuencia de muestreo en Hz (ej. 16000 Hz = 16.000 muestras por segundo)  
-    #se multiplica para saber cuantas muestras necesitamos 
+    #(duracion * sample_rate), es el numero total de muestras  que se van a grabar
+    #sample rate = es la frecuencia Hz, 16000 muestras por segundo
+    #se multiplica para saber cuantas muestras se necesita
     audio = sd.rec(int(duracion * sample_rate), samplerate=sample_rate, channels=1, dtype=np.int16)
     sd.wait()
     st.success("Grabación finalizada ")
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmpfile:
-        #se crea archivo temporal, se evita borrarlo y le pone .wav
         wavio.write(tmpfile.name, audio, sample_rate, sampwidth=2)
-        #toma el array de audi y guarda en wav/ruta- array con np -frecuencias-16 bits por muestra
         temp_audio_path = tmpfile.name
 
     st.audio(temp_audio_path, format="audio/wav")
-    #st.audio = reproductor de audio
-    #permite escuchar el audio grabado
 
-    with st.spinner("Evaluando pronunciación..."):#mensaje mientras se procesa = spinner
+# Si el usuario subió un archivo, usamos ese archivo para evaluar
+if audio_file is not None:
+    # Guardamos el archivo subido como temporal para que sea compatible con evaluar_pronunciacion
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmpfile:
+        tmpfile.write(audio_file.read())
+        temp_audio_path = tmpfile.name
+    st.audio(temp_audio_path, format="audio/wav")
+
+# Evaluación del audio
+if temp_audio_path is not None and st.button("Evaluar pronunciación"):
+    with st.spinner("Evaluando pronunciación..."):
         try:
-            resultados = evaluar_pronunciacion(temp_audio_path, frase)#comparar
+            resultados = evaluar_pronunciacion(temp_audio_path, frase)
             st.success("Evaluación completada")
 
             # Mostrar resultados
@@ -180,8 +189,6 @@ if os.path.exists(HISTORIAL_PATH):
         if user_data:
             df = pd.DataFrame(user_data)
             st.dataframe(df)
-
-            
             st.line_chart(df[["Pronunciación", "Fluidez", "Precisión"]].reset_index(drop=True))
         else:
             st.info("Aún no tienes evaluaciones registradas.")
