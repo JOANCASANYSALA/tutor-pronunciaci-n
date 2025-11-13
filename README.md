@@ -35,4 +35,4 @@ Para usar streamlit cloud deberas de utilizar el app2, ya que soundevice no es c
 
 Tambien te tienes que instalar el requirements.txt con pip install -r requirements.txt
 
-
+https://github.com/JOANCASANYSALA/tutor-pronunciaci-n/tree/main
