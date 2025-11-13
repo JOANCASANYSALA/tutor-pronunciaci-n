@@ -208,5 +208,35 @@
         "Precisión": 2.0,
         "Fluidez": 0.0,
         "Completitud": 0.0
+    },
+    {
+        "usuario": "Pau",
+        "fecha": "2025-11-13 14:22:01",
+        "nivel": 1,
+        "frase": "Good morning.",
+        "Pronunciación": 2.4,
+        "Precisión": 12.0,
+        "Fluidez": 0.0,
+        "Completitud": 0.0
+    },
+    {
+        "usuario": "Joan",
+        "fecha": "2025-11-13 14:22:51",
+        "nivel": 1,
+        "frase": "Hello!",
+        "Pronunciación": 97.6,
+        "Precisión": 96.0,
+        "Fluidez": 100.0,
+        "Completitud": 100.0
+    },
+    {
+        "usuario": "Joan",
+        "fecha": "2025-11-13 14:23:23",
+        "nivel": 0,
+        "frase": "Today i ate macarroni with tomate sauce",
+        "Pronunciación": 88.0,
+        "Precisión": 85.0,
+        "Fluidez": 99.0,
+        "Completitud": 86.0
     }
 ]
