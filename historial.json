@@ -1,0 +1,202 @@
+[
+    {
+        "usuario": "Joan",
+        "fecha": "2025-11-11 18:53:45",
+        "nivel": 2,
+        "frase": "I like playing football.",
+        "Pronunciación": 33.6,
+        "Precisión": 36.0,
+        "Fluidez": 57.0,
+        "Completitud": 25.0
+    },
+    {
+        "usuario": "Joan",
+        "fecha": "2025-11-11 18:56:43",
+        "nivel": 5,
+        "frase": "Despite the rain, the concert continued until midnight.",
+        "Pronunciación": 86.0,
+        "Precisión": 81.0,
+        "Fluidez": 99.0,
+        "Completitud": 88.0
+    },
+    {
+        "usuario": "Pau",
+        "fecha": "2025-11-11 18:57:50",
+        "nivel": 5,
+        "frase": "Despite the rain, the concert continued until midnight.",
+        "Pronunciación": 70.0,
+        "Precisión": 67.0,
+        "Fluidez": 97.0,
+        "Completitud": 62.0
+    },
+    {
+        "usuario": "Pau",
+        "fecha": "2025-11-11 18:58:14",
+        "nivel": 1,
+        "frase": "Hello!",
+        "Pronunciación": 0.0,
+        "Precisión": 0.0,
+        "Fluidez": 0.0,
+        "Completitud": 0.0
+    },
+    {
+        "usuario": "Pau",
+        "fecha": "2025-11-11 18:58:24",
+        "nivel": 1,
+        "frase": "Hello!",
+        "Pronunciación": 89.8,
+        "Precisión": 83.0,
+        "Fluidez": 100.0,
+        "Completitud": 100.0
+    },
+    {
+        "usuario": "Pau",
+        "fecha": "2025-11-11 18:58:59",
+        "nivel": 5,
+        "frase": "She speaks English fluently with a British accent.",
+        "Pronunciación": 77.8,
+        "Precisión": 72.0,
+        "Fluidez": 98.0,
+        "Completitud": 75.0
+    },
+    {
+        "usuario": "Joan",
+        "fecha": "2025-11-12 23:20:42",
+        "nivel": 1,
+        "frase": "Good morning.",
+        "Pronunciación": 91.2,
+        "Precisión": 86.0,
+        "Fluidez": 98.0,
+        "Completitud": 100.0
+    },
+    {
+        "usuario": "Joan",
+        "fecha": "2025-11-13 00:12:43",
+        "nivel": 1,
+        "frase": "Good morning.",
+        "Pronunciación": 24.2,
+        "Precisión": 21.0,
+        "Fluidez": 100.0,
+        "Completitud": 0.0
+    },
+    {
+        "usuario": "Joan",
+        "fecha": "2025-11-13 00:12:57",
+        "nivel": 1,
+        "frase": "Good morning.",
+        "Pronunciación": 57.0,
+        "Precisión": 56.0,
+        "Fluidez": 79.0,
+        "Completitud": 50.0
+    },
+    {
+        "usuario": "Pablo",
+        "fecha": "2025-11-13 00:41:48",
+        "nivel": 1,
+        "frase": "Hello!",
+        "Pronunciación": 98.2,
+        "Precisión": 97.0,
+        "Fluidez": 100.0,
+        "Completitud": 100.0
+    },
+    {
+        "usuario": "Pablo",
+        "fecha": "2025-11-13 00:42:10",
+        "nivel": 2,
+        "frase": "I like playing football.",
+        "Pronunciación": 87.8,
+        "Precisión": 80.0,
+        "Fluidez": 99.0,
+        "Completitud": 100.0
+    },
+    {
+        "usuario": "Pablo",
+        "fecha": "2025-11-13 00:42:34",
+        "nivel": 3,
+        "frase": "The weather today is beautiful.",
+        "Pronunciación": 89.4,
+        "Precisión": 83.0,
+        "Fluidez": 98.0,
+        "Completitud": 100.0
+    },
+    {
+        "usuario": "Pablo",
+        "fecha": "2025-11-13 00:43:00",
+        "nivel": 4,
+        "frase": "If I had known, I would have come earlier.",
+        "Pronunciación": 84.8,
+        "Precisión": 80.0,
+        "Fluidez": 95.0,
+        "Completitud": 89.0
+    },
+    {
+        "usuario": "Pablo",
+        "fecha": "2025-11-13 00:43:19",
+        "nivel": 5,
+        "frase": "Despite the rain, the concert continued until midnight.",
+        "Pronunciación": 76.8,
+        "Precisión": 70.0,
+        "Fluidez": 99.0,
+        "Completitud": 75.0
+    },
+    {
+        "usuario": "Pablo",
+        "fecha": "2025-11-13 00:43:44",
+        "nivel": 5,
+        "frase": "She speaks English fluently with a British accent.",
+        "Pronunciación": 71.0,
+        "Precisión": 64.0,
+        "Fluidez": 88.0,
+        "Completitud": 75.0
+    },
+    {
+        "usuario": "Pablo",
+        "fecha": "2025-11-13 00:43:58",
+        "nivel": 5,
+        "frase": "She speaks English fluently with a British accent.",
+        "Pronunciación": 41.0,
+        "Precisión": 33.0,
+        "Fluidez": 97.0,
+        "Completitud": 25.0
+    },
+    {
+        "usuario": "Pablo",
+        "fecha": "2025-11-13 00:44:10",
+        "nivel": 5,
+        "frase": "She speaks English fluently with a British accent.",
+        "Pronunciación": 84.2,
+        "Precisión": 80.0,
+        "Fluidez": 93.0,
+        "Completitud": 88.0
+    },
+    {
+        "usuario": "David",
+        "fecha": "2025-11-13 01:09:27",
+        "nivel": 0,
+        "frase": "Hello",
+        "Pronunciación": 95.2,
+        "Precisión": 92.0,
+        "Fluidez": 100.0,
+        "Completitud": 100.0
+    },
+    {
+        "usuario": "David",
+        "fecha": "2025-11-13 01:10:09",
+        "nivel": 2,
+        "frase": "I like playing football.",
+        "Pronunciación": 91.4,
+        "Precisión": 86.0,
+        "Fluidez": 99.0,
+        "Completitud": 100.0
+    },
+    {
+        "usuario": "Joan",
+        "fecha": "2025-11-13 11:28:20",
+        "nivel": 2,
+        "frase": "I like playing football.",
+        "Pronunciación": 83.2,
+        "Precisión": 75.0,
+        "Fluidez": 91.0,
+        "Completitud": 100.0
+    }
+]

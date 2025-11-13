@@ -1,0 +1,29 @@
+# 🎧 Tutor de pronunciación en inglés
+
+Aplicación desarrollada en **Streamlit** que evalúa tu pronunciación usando el servicio **Azure Speech**.  
+Permite grabar o subir tu voz, comparar con frases modelo y ver sugerencias automáticas, progreso y evolución por nivel.
+
+---
+
+## 🚀 Características principales
+- 6 niveles progresivos de dificultad (0 a 5).
+- Evaluación automática de:
+  - Pronunciación  
+  - Precisión  
+  - Fluidez  
+  - Completitud
+- Historial de progreso por usuario con gráficas interactivas.
+- Sugerencias automáticas personalizadas.
+- Integración con Azure Speech Service.
+
+## 🖥️ Capturas y demostración
+
+| Interfaz principal | Resultados globales | Historial de progreso |
+|--------------------|---------------------|-----------------------|
+
+
+| ![Inicio](media/foto1.png) | ![Resultados](media/captura2.png) | ![Historial](media/demo.gif) |
+
+*(Reemplaza las imágenes con tus propias capturas o un GIF corto mostrando cómo se usa la app.)*
+
+---
