@@ -22,9 +22,7 @@ Permite grabar o subir tu voz, comparar con frases modelo y ver sugerencias auto
 |--------------------|---------------------|-----------------------|
 
 
-| ![Inicio](media/foto1.png) | ![grabado-de-voz](/mediafoto2.png) | ![Sistema-de-progeso](media/foto4.png) ![Resultados](media/foto5.png) | ![Historial](media/foto3.gif)
-
-*(Reemplaza las imágenes con tus propias capturas o un GIF corto mostrando cómo se usa la app.)*
+| ![Inicio](media/foto1.png) | ![grabado-de-voz](media/foto2.png) | ![Sistema-de-progeso](media/foto4.png) ![Resultados](media/foto5.png) | ![Historial](media/foto3.gif)
 
 ---
 
